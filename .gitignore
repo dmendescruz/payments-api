@@ -1,0 +1,36 @@
+# Dependências
+node_modules/
+dist/
+build/
+
+# Variáveis de ambiente — NUNCA versionar
+.env
+.env.local
+.env.development
+.env.production
+
+# Chaves e certificados — NUNCA versionar
+*.pem
+*.key
+*.p12
+*.crt
+keys/
+vault-token.txt
+
+# Logs — podem conter dados sensíveis
+*.log
+logs/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+.idea/
+
+# TypeScript
+*.tsbuildinfo
+
+# Cobertura de testes
+coverage/
