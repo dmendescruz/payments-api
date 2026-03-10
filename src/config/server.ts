@@ -3,6 +3,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import { env } from './env';
+import authRoutes from '../auth/auth.routes';
 
 export function createServer(): Application {
   const app = express();
@@ -52,6 +53,17 @@ export function createServer(): Application {
       },
     });
   });
+
+  // ── Rotas ────────────────────────────────────────────────
+app.use('/api/v1/auth', authRoutes);
+
+// ── Rota não encontrada ──────────────────────────────────
+app.use((_req, res) => {
+  res.status(404).json({
+    success: false,
+    error: { code: 'NOT_FOUND', message: 'Rota não encontrada.' },
+  });
+});
 
   return app;
 }
